@@ -1,0 +1,22 @@
+.account-index .biodata h5 {
+    color: #555;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-family: roboto-medium;
+}
+
+.account-index .biodata p {
+    color: #555;
+    font-size: 13px;
+    font-family: roboto-regular;
+}
+
+.account-index .page-links .btn {
+    color: #555;
+    font-size: 13px;
+    background: #fff;
+    text-transform: capitalize;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family: roboto-regular;
+}

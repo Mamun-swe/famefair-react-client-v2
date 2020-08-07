@@ -1,0 +1,284 @@
+/* Banner */
+
+.home .banner-card {
+    height: 160px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.home .banner-card img {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.home .banner-card .carousel .carousel-item {
+    height: 160px;
+}
+
+.home .banner-card .carousel .carousel-item img {
+    height: 160px;
+}
+
+@media(min-width: 576px) {
+    .home .banner-card {
+        height: 200px;
+    }
+    .home .banner-card .carousel .carousel-item {
+        height: 200px;
+    }
+    .home .banner-card .carousel .carousel-item img {
+        height: 200px;
+    }
+}
+
+@media(min-width: 768px) {
+    .home .banner-card {
+        height: 210px;
+    }
+    .home .banner-card .carousel .carousel-item {
+        height: 210px;
+    }
+    .home .banner-card .carousel .carousel-item img {
+        height: 210px;
+    }
+}
+
+@media(min-width: 992px) {
+    .home .banner-card {
+        height: 250px;
+    }
+    .home .banner-card .carousel .carousel-item {
+        height: 250px;
+    }
+    .home .banner-card .carousel .carousel-item img {
+        height: 250px;
+    }
+}
+
+@media(min-width: 1440px) {
+    .home .banner-card {
+        height: 320px;
+    }
+    .home .banner-card .carousel .carousel-item {
+        height: 320px;
+    }
+    .home .banner-card .carousel .carousel-item img {
+        height: 320px;
+    }
+}
+
+/* Categories */
+
+.home .categories {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.home .categories .col-6 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.home .categories .category-card {
+    height: 120px;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.home .categories .category-card img {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/* Brands */
+
+.home .brands {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.home .brands h5 {
+    color: #000;
+    font-family: roboto-bold;
+}
+
+.home .brands .brand-card {
+    overflow: hidden;
+    padding: 8px;
+    float: left;
+    width: 33.33%;
+}
+
+.home .brands .brand-card .card {
+    height: 110px;
+    border-radius: 6px;
+}
+
+.home .brands .brand-card img {
+    width: 100px;
+    height: 110px;
+    margin: auto;
+}
+
+@media(min-width: 576px) {
+    .home .brands .brand-card {
+        width: 25%;
+    }
+}
+
+@media(min-width: 768px) {
+    .home .brands .brand-card {
+        width: 20%;
+    }
+}
+
+@media(min-width: 1240px) {
+    .home .brands .brand-card {
+        width: 16.66%;
+    }
+}
+
+@media(min-width: 1380px) {
+    .home .brands .brand-card {
+        width: 14.25%;
+    }
+}
+
+@media(min-width: 1500px) {
+    .home .brands .brand-card {
+        width: 11.11%;
+    }
+}
+
+/* Category */
+
+.category .banner-card {
+    height: 120px;
+    overflow: hidden;
+    border-radius: 6px;
+    position: relative;
+}
+
+@media(min-width: 576px) {
+    .category .banner-card {
+        height: 160px;
+    }
+}
+
+.category .banner-card img {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 6px;
+}
+
+.category .banner-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.87);
+}
+
+.category .banner-card .overlay h4 {
+    color: #000;
+    text-transform: capitalize;
+    font-family: roboto-medium;
+}
+
+/* Product */
+
+.product .card {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.product .product-img {
+    max-height: 200px;
+}
+
+.product .info-column h5 {
+    color: #000;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-family: roboto-medium;
+}
+
+.product .info-column .payments-instruction .methods h5 {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.product .info-column .payments-instruction .methods p {
+    font-family: roboto-regular;
+}
+
+.product .info-column .form-control {
+    background: #e9ecef;
+    font-size: 15px;
+    border: 0;
+    height: 35px;
+    font-family: roboto-regular;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.product .info-column .inc-desc-btn {
+    background: #e9ecef;
+    padding: 5px 9px;
+    border: 0;
+    height: 35px;
+}
+
+.product .info-column .cart-add-btn {
+    background: #e9ecef;
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: roboto-bold;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.product .product-details h5 {
+    color: #000;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-family: roboto-medium;
+}
+
+.product .product-details .card .card-body .product-name {
+    font-size: 18px;
+    line-height: 1.5rem;
+    font-family: roboto-medium;
+}
+
+.product .product-details .card .card-body .product-id, .product-brand {
+    font-size: 13px;
+    font-family: roboto-medium;
+}
+
+.product .product-details .card .card-body .product-brand span {
+    font-size: 14px;
+}
+
+.product .product-details .card .card-body .product-details {
+    font-size: 15px;
+    color: #555;
+    line-height: 30px;
+    font-family: roboto-regular;
+}
+
+@media(min-width: 992px) {
+    .product .info-column {
+        border-left: 1px solid #dfdfdf;
+    }
+}
+
+/* Related Products */
+
+.product .related-products h5 {
+    color: #000;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-family: roboto-medium;
+}

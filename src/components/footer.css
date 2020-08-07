@@ -1,0 +1,28 @@
+.footer .card {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.footer img {
+    width: 70px;
+    height: 30px;
+}
+
+.footer p {
+    font-size: 14px;
+    font-family: roboto-regular;
+}
+
+.footer h5 {
+    font-size: 17px;
+    font-family: roboto-medium;
+}
+
+.footer a {
+    display: block;
+    font-size: 14px;
+    color: #000;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+    font-family: roboto-regular;
+}
