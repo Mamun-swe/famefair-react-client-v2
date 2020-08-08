@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import api from '../api';
 
 import Banner from '../assets/images/banner.jpg';
 import Watch from '../assets/images/watch.png';
 
-const Category = () => {
-    const [products, setProducts] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30])
+const Category = (props) => {
+    const [catName, setCatName] = useState()
+    const [products, setProducts] = useState([1, 2, 3, 4, 5])
 
+    useEffect(() => {
+        console.log(props.match.params.id);
+        setCatName(props.match.params.name);
+    }, [])
 
     return (
         <div className="category py-3 py-lg-0">
@@ -20,7 +27,7 @@ const Category = () => {
                             <img src={Banner} className="img-fluid" alt="Category Banner" />
                             <div className="overlay">
                                 <div className="flex-center flex-column text-center">
-                                    <h4 className="mb-0">category name</h4>
+                                    <h4 className="mb-0">{catName}</h4>
                                 </div>
                             </div>
                         </div>
@@ -35,11 +42,11 @@ const Category = () => {
                         {products.map((product, i) =>
                             <div className="product-card" key={i}>
                                 <Link to={`/product/${product}/${product}`}>
-                                    <div className="card border-0 shadow-sm text-center">
+                                    <div className="card border-0 shadow-sm text-center pt-2">
                                         <div className="img-box">
                                             <img src={Watch} className="img-fluid" alt="..." />
                                         </div>
-                                        <div className="content px-2 py-1">
+                                        <div className="content p-2">
                                             <p className="mb-2">Apple watch bd</p>
                                             <p className="mb-0">Price: 800 TK.</p>
                                         </div>

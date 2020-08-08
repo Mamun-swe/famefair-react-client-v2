@@ -23,7 +23,7 @@ function App() {
 
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/category/:name" component={Category} />
+            <Route exact path="/category/:id/:name" component={Category} />
             <Route exact path="/product/:name/:id" component={Product} />
             <Route path="/account" component={AccountIndex} />
             <Route path="*">
