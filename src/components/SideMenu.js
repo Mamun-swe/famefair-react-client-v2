@@ -1,19 +1,47 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './sidemenu.css'
 import { Icon } from 'react-icons-kit'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import api from '../api'
 
 import Logo from '../assets/static/logo.png'
 import { ic_shopping_cart } from 'react-icons-kit/md/ic_shopping_cart'
 import { person } from 'react-icons-kit/ionicons/person'
 import { ic_search } from 'react-icons-kit/md/ic_search'
 import { menu } from 'react-icons-kit/iconic/menu'
+import { thinRight } from 'react-icons-kit/entypo/thinRight'
 
 const SideMenu = () => {
+
+    const [categories, setCategories] = useState([])
+    const [emptyCategory, setEmptyCategory] = useState(false)
 
     // Mobile Menu Bar
     const handleMobileMenu = () => {
         console.log("okkk");
+    }
+
+
+    useEffect(() => {
+        fetchCategory()
+    }, [])
+
+    // fetch category
+    const fetchCategory = () => {
+        axios.get(`${api}user/category/index`)
+            .then(res => {
+                if (res.status === 204) {
+                    return setEmptyCategory(true)
+                }
+                setEmptyCategory(false)
+                setCategories(res.data.results)
+            })
+            .catch(err => {
+                if (err) {
+                    console.log(err)
+                }
+            })
     }
 
     return (
@@ -60,7 +88,23 @@ const SideMenu = () => {
 
                     {/* Menu Body */}
                     <div className="body p-3">
-                        <Link to="/"><p>Page links here</p></Link>
+
+                        {/* Categories */}
+                        {emptyCategory ? (
+                            null
+                        ) :
+                            <div>
+                                {categories.length > 0 && categories.map((category, i) =>
+                                    <Link to={`/category/${category.id}/${category.name}`} key={i}>
+                                        <div className="d-flex">
+                                            <div><p>{category.name}</p></div>
+                                            <div className="ml-auto"><Icon icon={thinRight} size={14} /></div>
+                                        </div>
+                                    </Link>
+                                )}
+                            </div>
+                        }
+
                     </div>
                 </div>
             </div>

@@ -144,7 +144,7 @@ const Home = () => {
 
                         {categories.length > 0 && categories.map((category, i) =>
                             <div className="col-6 col-lg-4" key={i}>
-                                <Link to={`category/${category.id}`}>
+                                <Link to={`category/${category.id}/${category.name}`}>
                                     <div className="card border-0 shadow-sm category-card">
                                         <img src={category.image} className="img-fluid" alt="category" />
                                     </div>
