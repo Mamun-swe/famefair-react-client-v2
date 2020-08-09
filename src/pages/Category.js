@@ -46,7 +46,7 @@ const Category = (props) => {
 
                         {products.map((product, i) =>
                             <div className="product-card" key={i}>
-                                <Link to={`/product/${product}/${product}`}>
+                                <Link to={`/product/${product.name}/${product.id}`}>
                                     <div className="card border-0 shadow-sm text-center pt-2">
                                         <div className="img-box">
                                             <img src={product.image} className="img-fluid" alt="..." />
