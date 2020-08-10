@@ -19,6 +19,7 @@ const Product = (props) => {
     const [productImage, setProductImage] = useState('')
     const [product, setProduct] = useState({})
     const [relatedProducts, setRelatedProducts] = useState([])
+    const [cartProducts, setCartProducts] = useState([])
 
     const isDisabledDecrement = () => {
         if (pQuantity <= 1) {
@@ -65,6 +66,35 @@ const Product = (props) => {
                     }
                 }
             })
+    }
+
+    // Add to cart
+    const addToCart = () => {
+        const newProduct = {
+            id: product.id,
+            code: product.code,
+            name: product.name,
+            price: product.price,
+            quantity: pQuantity,
+            image: product.image
+        }
+        // setStorageProducts(newProduct)
+
+        const cartItems = cartProducts.slice()
+        let alreadyInCart = false
+        cartItems.forEach((item) => {
+            if (item.id === newProduct.id) {
+                alreadyInCart = true
+                alert('already in cart')
+            }
+        })
+
+        if (!alreadyInCart) {
+            cartItems.push({ ...newProduct })
+
+        }
+        setCartProducts(cartItems)
+        // console.log(cartProducts);
     }
 
 
@@ -126,7 +156,7 @@ const Product = (props) => {
                                                 {/* End Quantity Increment Decrement */}
 
                                                 {/* Add Cart button */}
-                                                <button type="button" className="btn btn-block shadow-none text-dark cart-add-btn">ADD TO CART</button>
+                                                <button type="button" className="btn btn-block shadow-none text-dark cart-add-btn" onClick={addToCart}>ADD TO CART</button>
 
                                                 <div className="product-details mt-3">
                                                     <p className="mb-0 product-id">PRODUCT CODE:
@@ -137,6 +167,8 @@ const Product = (props) => {
                                                     </p>
 
                                                     <p className="product-description mb-0">{product.description}</p>
+
+                                                    <p>Cart item: {cartProducts.length}</p>
                                                 </div>
                                             </div>
 
