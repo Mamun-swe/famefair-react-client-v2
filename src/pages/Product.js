@@ -18,7 +18,7 @@ const Product = (props) => {
     const [quantity, setQuantity] = useState()
     const [productImage, setProductImage] = useState('')
     const [product, setProduct] = useState({})
-    const [products, setProducts] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    const [relatedProducts, setRelatedProducts] = useState([])
 
     const isDisabledDecrement = () => {
         if (pQuantity <= 1) {
@@ -50,13 +50,13 @@ const Product = (props) => {
     }, [])
 
     // fetch single product
-    const fetchSingleProduct = () => {
-        axios.get(`${api}user/product/${props.match.params.id}/show`)
+    const fetchSingleProduct = async () => {
+        await axios.get(`${api}user/product/${props.match.params.id}/show`)
             .then(res => {
-                setProduct(res.data);
-                setQuantity(res.data.quantity);
+                setProduct(res.data)
+                setQuantity(res.data.quantity)
                 setProductImage(res.data.image)
-                console.log(res.data);
+                setRelatedProducts(res.data.products)
             })
             .catch(err => {
                 if (err) {
@@ -66,6 +66,7 @@ const Product = (props) => {
                 }
             })
     }
+
 
     return (
         <div className="product py-3 py-lg-0">
@@ -85,7 +86,7 @@ const Product = (props) => {
                                                     smallImage: {
                                                         alt: 'Product',
                                                         src: productImage,
-                                                        width: window.innerWidth > 992 ? 430 : 250,
+                                                        width: window.innerWidth > 992 ? 410 : 250,
                                                         height: window.innerWidth > 992 ? 500 : 300
                                                     },
                                                     style: { margin: 'auto' },
@@ -159,16 +160,16 @@ const Product = (props) => {
                         <div className="row products mt-2">
                             <div className="col-12 px-0">
 
-                                {products.map((product, i) =>
+                                {relatedProducts.map((relatedProduct, i) =>
                                     <div className="product-card" key={i}>
-                                        <Link to={`/product/${product}/${product}`}>
+                                        <Link to={`/product/${relatedProduct.product_name}/${relatedProduct.product_id}`}>
                                             <div className="card border-0 shadow-sm text-center">
                                                 <div className="img-box">
-                                                    <img src={Watch} className="img-fluid" alt="..." />
+                                                    <img src={relatedProduct.image} className="img-fluid" alt="..." />
                                                 </div>
                                                 <div className="content px-2 py-1">
-                                                    <p className="mb-2">Apple watch bd</p>
-                                                    <p className="mb-0">Price: 800 TK.</p>
+                                                    <p className="mb-2">{relatedProduct.product_name}</p>
+                                                    <p className="mb-0">Price: {relatedProduct.price} TK.</p>
                                                 </div>
                                             </div>
                                         </Link>
