@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import api from '../api';
 
 import Banner from '../assets/images/banner.jpg';
 
-const Category = (props) => {
+const Category = () => {
+    const { id, name } = useParams()
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`${api}user/products/category/${props.match.params.id}`)
+        axios.get(`${api}user/products/category/${id}`)
             .then(res => {
                 setProducts(res.data.results)
             })
@@ -19,7 +20,7 @@ const Category = (props) => {
                     console.log(err.response)
                 }
             })
-    }, [])
+    }, [id, name])
 
     return (
         <div className="category py-3 py-lg-0">
@@ -32,7 +33,7 @@ const Category = (props) => {
                             <img src={Banner} className="img-fluid" alt="Category Banner" />
                             <div className="overlay">
                                 <div className="flex-center flex-column text-center">
-                                    <h4 className="mb-0">{props.match.params.name}</h4>
+                                    <h4 className="mb-0">{name}</h4>
                                 </div>
                             </div>
                         </div>

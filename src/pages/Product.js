@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import { Icon } from 'react-icons-kit'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import api from '../api'
 
@@ -10,9 +10,8 @@ import { minus } from 'react-icons-kit/ionicons/minus'
 import FourOneFourPage from '../components/FourOneFour'
 import ReactImageMagnify from 'react-image-magnify'
 
-import Watch from '../assets/images/women.png'
-
 const Product = (props) => {
+    const { id } = useParams()
     const [error, setError] = useState(false)
     const [pQuantity, setPquantity] = useState(1)
     const [quantity, setQuantity] = useState()
@@ -47,26 +46,28 @@ const Product = (props) => {
 
 
     useEffect(() => {
-        fetchSingleProduct()
-    }, [])
-
-    // fetch single product
-    const fetchSingleProduct = async () => {
-        await axios.get(`${api}user/product/${props.match.params.id}/show`)
-            .then(res => {
-                setProduct(res.data)
-                setQuantity(res.data.quantity)
-                setProductImage(res.data.image)
-                setRelatedProducts(res.data.products)
-            })
-            .catch(err => {
-                if (err) {
-                    if (err.response.status) {
-                        setError(true)
+        // fetch single product
+        const fetchSingleProduct = async () => {
+            await axios.get(`${api}user/product/${id}/show`)
+                .then(res => {
+                    setProduct(res.data)
+                    setQuantity(res.data.quantity)
+                    setProductImage(res.data.image)
+                    setRelatedProducts(res.data.products)
+                })
+                .catch(err => {
+                    if (err) {
+                        if (err.response.status) {
+                            setError(true)
+                        }
                     }
-                }
-            })
-    }
+                })
+        }
+
+        fetchSingleProduct()
+    }, [id])
+
+
 
     // Add to cart
     const addToCart = () => {
