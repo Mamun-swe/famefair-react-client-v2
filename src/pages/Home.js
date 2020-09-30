@@ -9,13 +9,10 @@ const Home = () => {
     const [index, setIndex] = useState(0)
     const [banners, setBanners] = useState([])
     const [emptyBanner, setEmptyBanner] = useState(false)
-
     const [categories, setCategories] = useState([])
     const [emptyCategory, setEmptyCategory] = useState(false)
-
     const [brands, setBrands] = useState([])
     const [emptyBrand, setEmptyBrand] = useState(false)
-
     const [categoryWithProducts, setCategoryWithProducts] = useState([])
     const [emptyProduct, setEmptyProduct] = useState(false)
 
